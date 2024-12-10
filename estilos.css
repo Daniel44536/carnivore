@@ -1,0 +1,239 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html, body {
+    height: 100%;  /* Asegura que el body ocupe el 100% de la altura de la pantalla */
+}
+
+body {
+    background: #eeeeee;
+    color: #000;
+    font-family: sans-serif;
+    display: flex;
+    flex-direction: column;
+}
+
+.estructura {
+    display: grid;
+    grid-gap: 20px;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-areas: "header        header      header"
+                         "carrusel      carrusel    carrusel"
+                         "sidebar-1     contenido   sidebar-2"
+                         "sidebar-1     contenido   sidebar-2"
+                         "mapa          mapa        mapa"
+                         "footer        footer      footer";
+    width: 100%;
+    min-height: 100%;  /* Asegura que la estructura ocupe toda la altura disponible */
+}
+
+.estructura > div {
+    padding: 20px;
+    color: #fff;
+    box-shadow: 2px 2px 10px rgba(0,0,0,0.25);
+}
+
+.estructura .header {
+    background: #1A1A1A;
+    grid-column: header;
+    display: flex;
+    justify-content: space-between; /* Alinea logo y links a los extremos */
+    align-items: center;
+    padding: 10px 20px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.carrusel {
+    grid-area: carrusel; /* Asigna el área del carrusel en la grilla */
+    width: 100%;  /* Asegura que el carrusel ocupe todo el ancho disponible */
+    padding: 0; /* Elimina cualquier padding innecesario */
+}
+
+.logo img {
+    height: 200px; 
+    height: 200px;/* Ajusta el tamaño del logo */
+}
+
+.nav-links {
+    display: flex;
+    gap: 15px; /* Espacio entre los enlaces */
+}
+
+.nav-links a {
+    color: #F5F5F5;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 25px;
+}
+
+.nav-links a:hover {
+    text-decoration: underline;
+}
+
+.estructura .sidebar-1 {
+    background: #393e46;
+    grid-row: sidebar-1;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.estructura .contenido {
+    background: #F5F5F5;
+    color: #333333;
+    grid-area: contenido;
+}
+
+.estructura .sidebar-2 {
+    background: #393e46;
+    grid-area: sidebar-2;
+}
+
+.estructura .mapa {
+    grid-area: mapa;
+}
+
+#mapa {
+    height: 500px; /* Altura del mapa */
+    width: 100%;   /* Ancho del mapa */
+}
+
+.estructura .footer {
+    background: #333333;
+    color: #F5F5F5;
+    grid-area: footer;
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+    padding: 20px 0;
+}
+
+.footer .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    max-width: 1200px;
+    flex-wrap: wrap;
+}
+
+.footer-section {
+    flex: 1;
+    min-width: 200px;
+    margin: 10px 0;
+}
+
+.footer-section h4 {
+    margin-bottom: 10px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #FFF;
+}
+
+.footer-section p, .footer-section ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.footer-section ul li {
+    margin: 5px 0;
+}
+
+.footer-section ul li a {
+    color: #FFF;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer-section ul li a:hover {
+    color: #FF8C00; /* Cambia a un naranja brillante al pasar el cursor */
+}
+
+.footer-bottom {
+    margin-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.3);
+    padding-top: 10px;
+    font-size: 14px;
+}
+
+
+
+
+
+
+
+
+
+.info-box {
+    display: none; /* Oculta el info-box inicialmente */
+    position: fixed;
+    top: 20%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 300px;
+    height: 400px; /* Define una altura fija para el info-box */
+    overflow-y: auto; /* Habilita el desplazamiento vertical si el contenido es más largo que la altura */
+    background-color: white;
+    padding: 20px;
+    border: 1px solid #ccc;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+}
+
+.info-box .close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+/* #info-box {
+    display: none; 
+    position: fixed;
+    top: 20%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 300px;
+    background-color: white;
+    padding: 20px;
+    border: 1px solid #ccc;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+#info-box .close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 20px;
+    cursor: pointer;
+    font-family: 'Montserrat', sans-serif;
+} */
+
+#Huachalomo {
+    cursor: pointer; /* Cambia el cursor a mano cuando se pasa sobre el path */
+    transition: stroke 0.3s; /* Animación de transición */
+  }
+
+
+  #Huachalomo:active {
+    stroke: green; /* Cambia el color del trazo cuando el path está siendo clickeado */
+  }
+
+
+  @media (max-width: 480px) {
+    .estructura {
+        grid-template-columns: 1fr; /* Cambia a una sola columna */
+        grid-template-areas:
+            "header"
+            "carrusel"
+            "contenido"
+            "mapa"
+            "footer";
+    }
+}

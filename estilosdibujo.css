@@ -1,0 +1,36 @@
+*{
+    background: #F5F5F5;
+    
+}
+
+/* styles.css */
+.info-box {
+    display: none;
+    position: fixed;
+    top: 20%;
+    left: 20%;
+    background-color: white;
+    padding: 20px;
+    border: 1px solid #ccc;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    max-width: 400px;
+}
+
+.info-box .close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+}
+
+#meat-cuts path {
+    fill: none;
+    stroke: black;
+    stroke-width: 2;
+    cursor: pointer;
+}
+
+#meat-cuts path:hover {
+    stroke: #007bff;
+}
